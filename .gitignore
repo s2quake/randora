@@ -1,0 +1,10 @@
+bin/
+publish/
+pack/
+obj/
+logs/
+packages/
+.DS_Store
+.vs/
+.vscode/
+.bin/

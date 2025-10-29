@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\JSSoft.Randora\JSSoft.Randora.csproj" />
+  </ItemGroup>
+
+</Project>

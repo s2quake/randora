@@ -1,0 +1,55 @@
+name: Build and Test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - dev
+  workflow_dispatch:
+
+env:
+  TEST_RESULTS_PATH: ${{ github.workspace }}/test-results.trx
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        framework: [net6.0, net7.0, net8.0, net9.0, netstandard2.1]
+        include:
+          - framework: net6.0
+            dotnet-version: 6.0.x
+          - framework: net7.0
+            dotnet-version: 7.0.x
+          - framework: net8.0
+            dotnet-version: 8.0.x
+          - framework: net9.0
+            dotnet-version: 9.0.x
+          - framework: netstandard2.1
+            dotnet-version: 9.0.x
+    steps:
+      - uses: actions/checkout@v4.1.7
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - run: dotnet --list-sdks
+      - run: echo "${{ secrets.SNK_FILE }}" | base64 --decode > private.snk
+      - run: |
+          dotnet build \
+            --configuration Release \
+            -p:TestFramework=${{ matrix.framework }} \
+            -p:TreatWarningsAsErrors=true \
+            -p:AssemblyOriginatorKeyFile=$(pwd)/private.snk
+      - run: |
+          dotnet test \
+            --configuration Release \
+            -p:TestFramework=${{ matrix.framework }} \
+            --no-restore \
+            --no-build \
+            --logger "trx;LogFileName=${{ env.TEST_RESULTS_PATH }}"
+      - uses: dorny/test-reporter@v2
+        with:
+          name: XUnit Tests for ${{ matrix.framework }}
+          path: ${{ env.TEST_RESULTS_PATH }}
+          reporter: dotnet-trx
