@@ -1,4 +1,5 @@
 [files]
 extend-exclude = [
-    "**/words.txt"
+    "**/words.txt",
+    "README.md"
 ]
