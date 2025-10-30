@@ -35,7 +35,7 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
     <PackageProjectUrl>https://github.com/s2quake/randora</PackageProjectUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageTags>command-line, console, REPL, terminal</PackageTags>
+    <PackageTags>library, csharp, dotnet, random, collections, immutable-collections, random-data-generation, tuple, random-data</PackageTags>
     <LangVersion>12</LangVersion>
     <RootPath Condition="'$(SolutionDir)' != ''">$(SolutionDir)</RootPath>
     <RootPath Condition="'$(SolutionDir)' == ''">$(MSBuildThisFileDirectory)\</RootPath>
