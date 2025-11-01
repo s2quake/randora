@@ -36,7 +36,7 @@ $keyPathExits = Test-Path -Path $KeyPath
 $options = @(
     $OutputPath ? "-o '$OutputPath'" : ""
     "-p:FileVersion='$fileVersion'"
-    $PullRequestNumber ? "--version-suffix pr.$PullRequestNumber" : ""
+    $PullRequestNumber ? "--version-suffix preview.$PullRequestNumber" : ""
     $keyPathExits ? "-p:TreatWarningsAsErrors=true" : ""
     $keyPathExits ? "-p:AssemblyOriginatorKeyFile='$KeyPath'" : ""
     $CommitSHA ? "-p:RepositoryUrl='$packageProjectUrl/tree/$CommitSHA'" : ""

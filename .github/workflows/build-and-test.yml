@@ -47,9 +47,18 @@ jobs:
             -p:TestFramework=${{ matrix.framework }} \
             --no-restore \
             --no-build \
+            --collect "XPlat Code Coverage" \
             --logger "trx;LogFileName=${{ env.TEST_RESULTS_PATH }}"
       - uses: dorny/test-reporter@v2
         with:
           name: XUnit Tests for ${{ matrix.framework }}
           path: ${{ env.TEST_RESULTS_PATH }}
           reporter: dotnet-trx
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: "**/coverage.cobertura.xml"
+          flags: ${{ matrix.framework }}
+          name: ${{ matrix.framework }}
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}

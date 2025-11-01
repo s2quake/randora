@@ -1,4 +1,9 @@
-# Randora
+# Randora 
+
+[![NuGet](https://img.shields.io/nuget/v/JSSoft.Randora.svg?label=release)](https://www.nuget.org/packages/JSSoft.Randora/)
+[![NuGet (prerelease)](https://img.shields.io/nuget/vpre/JSSoft.Randora.svg?label=preview)](https://www.nuget.org/packages/JSSoft.Randora/)
+[![codecov](https://codecov.io/gh/s2quake/randora/branch/main/graph/badge.svg)](https://codecov.io/gh/s2quake/randora)
+[![License](https://img.shields.io/github/license/s2quake/randora.svg)](https://github.com/s2quake/randora/blob/main/LICENSE.md)
 
 A lightweight random-value utility. It provides simple APIs to generate a wide range of data: primitives, collections, enums, text, time values, shuffles, and more.
 
@@ -28,7 +33,7 @@ To use it project-wide, add a using alias via GlobalUsings or your project file 
 
 ```xml
 <ItemGroup>
-	<Using Include="JSSoft.Randora.RandomUtility" Alias="R" />
+  <Using Include="JSSoft.Randora.RandomUtility" Alias="R" />
 </ItemGroup>
 ```
 
