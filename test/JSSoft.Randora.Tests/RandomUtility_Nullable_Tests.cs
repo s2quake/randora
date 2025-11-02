@@ -988,4 +988,38 @@ public class RandomUtility_Nullable_Tests
             Assert.IsType<DateTime>(t8.Value.Rest.Item1);
         }
     }
+
+    // Generic helpers ----------------------------------------------------
+
+    [Fact]
+    public void Nullable_Int_WithRandom_ShouldContainNullAndValue()
+    {
+        var r = NewSeeded();
+        const int iterations = 128; // 66% 값 생성 확률을 고려한 충분한 반복
+        var results = new List<int?>(capacity: iterations);
+
+        for (int i = 0; i < iterations; i++)
+        {
+            results.Add(R.Nullable(r, R.Int32));
+        }
+
+        Assert.Contains(results, v => v.HasValue);
+        Assert.Contains(results, v => v is null);
+    }
+
+    [Fact]
+    public void NullableObject_String_WithRandom_ShouldContainNullAndValue()
+    {
+        var r = NewSeeded();
+        const int iterations = 128;
+        var results = new List<string?>(capacity: iterations);
+
+        for (int i = 0; i < iterations; i++)
+        {
+            results.Add(R.NullableObject(r, R.String));
+        }
+
+        Assert.Contains(results, v => v is not null);
+        Assert.Contains(results, v => v is null);
+    }
 }

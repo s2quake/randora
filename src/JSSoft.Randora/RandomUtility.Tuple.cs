@@ -3,7 +3,6 @@
 //   Licensed under the MIT License. See LICENSE.md in the project root for license information.
 // </copyright>
 
-#pragma warning disable MEN002 // Line is too long
 #pragma warning disable SA1414 // Tuple types in signatures should have element names
 namespace JSSoft.Randora;
 

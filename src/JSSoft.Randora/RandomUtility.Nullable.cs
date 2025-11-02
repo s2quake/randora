@@ -3,8 +3,6 @@
 //   Licensed under the MIT License. See LICENSE.md in the project root for license information.
 // </copyright>
 
-#pragma warning disable MEN002 // Line is too long
-
 namespace JSSoft.Randora;
 
 public static partial class RandomUtility
