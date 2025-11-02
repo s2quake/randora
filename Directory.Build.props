@@ -21,7 +21,7 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 
   <PropertyGroup>
     <AssemblyVersion>1.0</AssemblyVersion>
-    <FileVersion>1.0.0</FileVersion>
+    <FileVersion>1.0.1</FileVersion>
     <Version>$(FileVersion)</Version>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/s2quake/randora</RepositoryUrl>
