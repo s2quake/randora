@@ -1,6 +1,16 @@
 Commands changes
 ===================
 
+1.0.1
+-------------
+
+### Documentation and packaging improvements
+
+- Add and translate XML documentation for all public APIs in `RandomUtility`, `RandomUtility.Nullable`, and `RandomUtility.Tuple` so consumers get IntelliSense help.
+- Generate XML documentation files only during `dotnet pack` (multi-target), avoiding stray `.xml` outputs in dev builds while ensuring docs are included in the NuGet package.
+- Disambiguate XML cref references (e.g., fully qualify `System.Numerics.BigInteger`, `System.DateTimeOffset`, `System.TimeSpan`, generic collection types) to resolve CS0419 warnings in CI.
+- Bump FileVersion to 1.0.1.
+
 1.0.0
 -------------
 
