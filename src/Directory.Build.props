@@ -4,9 +4,17 @@
 
   <PropertyGroup>
     <PublishName>library</PublishName>
-    <TargetFrameworks Condition="'$(_IsPacking)'=='true'">net6.0;net7.0;net8.0;net9.0;netstandard2.1</TargetFrameworks>
-    <TargetFramework Condition="'$(_IsPacking)'!='true' and '$(TestFramework)'==''">net9.0</TargetFramework>
-    <TargetFramework Condition="'$(_IsPacking)'!='true' and '$(TestFramework)'!=''">$(TestFramework)</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(_IsPacking)'=='true'">
+    <TargetFrameworks>net6.0;net7.0;net8.0;net9.0;netstandard2.1</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.xml</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(_IsPacking)'!='true' and '$(TestFramework)'==''">
+    <TargetFramework Condition="'$(TestFramework)'==''">net9.0</TargetFramework>
+    <TargetFramework Condition="'$(TestFramework)'!=''">$(TestFramework)</TargetFramework>
   </PropertyGroup>
 
 </Project>
