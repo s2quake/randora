@@ -12,7 +12,7 @@
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.xml</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(_IsPacking)'!='true' and '$(TestFramework)'==''">
+  <PropertyGroup Condition="'$(_IsPacking)'!='true'">
     <TargetFramework Condition="'$(TestFramework)'==''">net9.0</TargetFramework>
     <TargetFramework Condition="'$(TestFramework)'!=''">$(TestFramework)</TargetFramework>
   </PropertyGroup>
