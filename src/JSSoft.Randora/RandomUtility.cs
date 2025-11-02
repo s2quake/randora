@@ -16,6 +16,10 @@ namespace JSSoft.Randora;
 /// </summary>
 public static partial class RandomUtility
 {
+    /// <summary>
+    /// The maximum number of attempts the Try methods will perform to produce a value
+    /// that satisfies the predicate before throwing an exception.
+    /// </summary>
     public const int AttemptCount = 100;
 
     private static readonly char[] _hexCharacters =
@@ -250,12 +254,12 @@ public static partial class RandomUtility
     public static decimal Decimal(Random random) => (decimal)random.NextDouble();
 
     /// <summary>
-    /// Generates a random <see cref="BigInteger"/> value.
+    /// Generates a random <see cref="System.Numerics.BigInteger"/> value.
     /// </summary>
     public static BigInteger BigInteger() => BigInteger(_shared);
 
     /// <summary>
-    /// Generates a random <see cref="BigInteger"/> value using the specified PRNG.
+    /// Generates a random <see cref="System.Numerics.BigInteger"/> value using the specified PRNG.
     /// </summary>
     /// <param name="random">The pseudo-random number generator to use.</param>
     public static BigInteger BigInteger(Random random)
@@ -354,12 +358,12 @@ public static partial class RandomUtility
     public static long NonNegativeInt64(Random random) => Int64(random, -1, long.MaxValue) + 1;
 
     /// <summary>
-    /// Generates a positive <see cref="BigInteger"/> value (> 0).
+    /// Generates a positive <see cref="System.Numerics.BigInteger"/> value (> 0).
     /// </summary>
     public static BigInteger PositiveBigInteger() => PositiveBigInteger(_shared);
 
     /// <summary>
-    /// Generates a positive <see cref="BigInteger"/> value using the specified PRNG.
+    /// Generates a positive <see cref="System.Numerics.BigInteger"/> value using the specified PRNG.
     /// </summary>
     /// <param name="random">The pseudo-random number generator to use.</param>
     public static BigInteger PositiveBigInteger(Random random)
@@ -369,12 +373,12 @@ public static partial class RandomUtility
     }
 
     /// <summary>
-    /// Generates a negative <see cref="BigInteger"/> value (&lt; 0).
+    /// Generates a negative <see cref="System.Numerics.BigInteger"/> value (&lt; 0).
     /// </summary>
     public static BigInteger NegativeBigInteger() => NegativeBigInteger(_shared);
 
     /// <summary>
-    /// Generates a negative <see cref="BigInteger"/> value using the specified PRNG.
+    /// Generates a negative <see cref="System.Numerics.BigInteger"/> value using the specified PRNG.
     /// </summary>
     /// <param name="random">The pseudo-random number generator to use.</param>
     public static BigInteger NegativeBigInteger(Random random)
@@ -384,12 +388,12 @@ public static partial class RandomUtility
     }
 
     /// <summary>
-    /// Generates a non-positive <see cref="BigInteger"/> value (&lt;= 0).
+    /// Generates a non-positive <see cref="System.Numerics.BigInteger"/> value (&lt;= 0).
     /// </summary>
     public static BigInteger NonPositiveBigInteger() => NonPositiveBigInteger(_shared);
 
     /// <summary>
-    /// Generates a non-positive <see cref="BigInteger"/> value using the specified PRNG.
+    /// Generates a non-positive <see cref="System.Numerics.BigInteger"/> value using the specified PRNG.
     /// </summary>
     /// <param name="random">The pseudo-random number generator to use.</param>
     public static BigInteger NonPositiveBigInteger(Random random)
@@ -399,12 +403,12 @@ public static partial class RandomUtility
     }
 
     /// <summary>
-    /// Generates a non-negative <see cref="BigInteger"/> value (>= 0).
+    /// Generates a non-negative <see cref="System.Numerics.BigInteger"/> value (>= 0).
     /// </summary>
     public static BigInteger NonNegativeBigInteger() => NonNegativeBigInteger(_shared);
 
     /// <summary>
-    /// Generates a non-negative <see cref="BigInteger"/> value using the specified PRNG.
+    /// Generates a non-negative <see cref="System.Numerics.BigInteger"/> value using the specified PRNG.
     /// </summary>
     /// <param name="random">The pseudo-random number generator to use.</param>
     public static BigInteger NonNegativeBigInteger(Random random)
@@ -460,12 +464,12 @@ public static partial class RandomUtility
     public static char Char(Random random) => (char)UInt16(random);
 
     /// <summary>
-    /// Generates a random <see cref="DateTimeOffset"/> value.
+    /// Generates a random <see cref="System.DateTimeOffset"/> value.
     /// </summary>
     public static DateTimeOffset DateTimeOffset() => DateTimeOffset(_shared);
 
     /// <summary>
-    /// Generates a random <see cref="DateTimeOffset"/> value using the specified PRNG.
+    /// Generates a random <see cref="System.DateTimeOffset"/> value using the specified PRNG.
     /// </summary>
     /// <param name="random">The pseudo-random number generator to use.</param>
     public static DateTimeOffset DateTimeOffset(Random random)
@@ -477,18 +481,18 @@ public static partial class RandomUtility
     }
 
     /// <summary>
-    /// Generates a random <see cref="TimeSpan"/> value.
+    /// Generates a random <see cref="System.TimeSpan"/> value.
     /// </summary>
     public static TimeSpan TimeSpan() => TimeSpan(_shared);
 
     /// <summary>
-    /// Generates a random <see cref="TimeSpan"/> value using the specified PRNG.
+    /// Generates a random <see cref="System.TimeSpan"/> value using the specified PRNG.
     /// </summary>
     /// <param name="random">The pseudo-random number generator to use.</param>
     public static TimeSpan TimeSpan(Random random) => new(random.NextInt64(new TimeSpan(365, 0, 0, 0).Ticks));
 
     /// <summary>
-    /// Generates a <see cref="TimeSpan"/> within the specified milliseconds range.
+    /// Generates a <see cref="System.TimeSpan"/> within the specified milliseconds range.
     /// </summary>
     /// <param name="minMilliseconds">The inclusive lower bound in milliseconds.</param>
     /// <param name="maxMilliseconds">The exclusive upper bound in milliseconds.</param>
@@ -496,7 +500,7 @@ public static partial class RandomUtility
         => TimeSpan(_shared, minMilliseconds, maxMilliseconds);
 
     /// <summary>
-    /// Generates a <see cref="TimeSpan"/> within the specified milliseconds range using the provided PRNG.
+    /// Generates a <see cref="System.TimeSpan"/> within the specified milliseconds range using the provided PRNG.
     /// </summary>
     /// <param name="random">The pseudo-random number generator to use.</param>
     /// <param name="minMilliseconds">The inclusive lower bound in milliseconds.</param>
@@ -508,12 +512,12 @@ public static partial class RandomUtility
     }
 
     /// <summary>
-    /// Generates a random <see cref="Guid"/> value.
+    /// Generates a random <see cref="System.Guid"/> value.
     /// </summary>
     public static Guid Guid() => Guid(_shared);
 
     /// <summary>
-    /// Generates a random <see cref="Guid"/> value using the specified PRNG.
+    /// Generates a random <see cref="System.Guid"/> value using the specified PRNG.
     /// </summary>
     /// <param name="random">The pseudo-random number generator to use.</param>
     public static Guid Guid(Random random) => new(Array(random, Byte, 16));
@@ -662,14 +666,14 @@ public static partial class RandomUtility
     }
 
     /// <summary>
-    /// Creates a <see cref="List{T}"/> of random length using the specified value generator.
+    /// Creates a <see cref="System.Collections.Generic.List{T}"/> of random length using the specified value generator.
     /// </summary>
     /// <typeparam name="T">The element type.</typeparam>
     /// <param name="generator">A function that generates element values.</param>
     public static List<T> List<T>(Func<T> generator) => List(generator, Length());
 
     /// <summary>
-    /// Creates a <see cref="List{T}"/> using the specified value generator and length.
+    /// Creates a <see cref="System.Collections.Generic.List{T}"/> using the specified value generator and length.
     /// </summary>
     /// <typeparam name="T">The element type.</typeparam>
     /// <param name="generator">A function that generates element values.</param>
@@ -678,7 +682,7 @@ public static partial class RandomUtility
         => List(_shared, _ => generator(), length);
 
     /// <summary>
-    /// Creates a <see cref="List{T}"/> of random length using the specified PRNG and value generator.
+    /// Creates a <see cref="System.Collections.Generic.List{T}"/> of random length using the specified PRNG and value generator.
     /// </summary>
     /// <typeparam name="T">The element type.</typeparam>
     /// <param name="random">The pseudo-random number generator to use.</param>
@@ -687,7 +691,7 @@ public static partial class RandomUtility
         => List(random, generator, Length(random));
 
     /// <summary>
-    /// Creates a <see cref="List{T}"/> using the specified PRNG, value generator, and length.
+    /// Creates a <see cref="System.Collections.Generic.List{T}"/> using the specified PRNG, value generator, and length.
     /// </summary>
     /// <typeparam name="T">The element type.</typeparam>
     /// <param name="random">The pseudo-random number generator to use.</param>
@@ -705,14 +709,14 @@ public static partial class RandomUtility
     }
 
     /// <summary>
-    /// Creates a <see cref="HashSet{T}"/> of random length using the specified value generator.
+    /// Creates a <see cref="System.Collections.Generic.HashSet{TValue}"/> of random length using the specified value generator.
     /// </summary>
     /// <typeparam name="TValue">The element type.</typeparam>
     /// <param name="generator">A function that generates element values.</param>
     public static HashSet<TValue> HashSet<TValue>(Func<TValue> generator) => HashSet(generator, Length());
 
     /// <summary>
-    /// Creates a <see cref="HashSet{T}"/> using the specified value generator and length.
+    /// Creates a <see cref="System.Collections.Generic.HashSet{TValue}"/> using the specified value generator and length.
     /// </summary>
     /// <typeparam name="TValue">The element type.</typeparam>
     /// <param name="generator">A function that generates element values.</param>
@@ -721,7 +725,7 @@ public static partial class RandomUtility
         => HashSet(_shared, _ => generator(), length);
 
     /// <summary>
-    /// Creates a <see cref="HashSet{T}"/> of random length using the specified PRNG and value generator.
+    /// Creates a <see cref="System.Collections.Generic.HashSet{TValue}"/> of random length using the specified PRNG and value generator.
     /// </summary>
     /// <typeparam name="TValue">The element type.</typeparam>
     /// <param name="random">The pseudo-random number generator to use.</param>
@@ -730,7 +734,7 @@ public static partial class RandomUtility
         => HashSet(random, generator, Length(random));
 
     /// <summary>
-    /// Creates a <see cref="HashSet{T}"/> using the specified PRNG, value generator, and length.
+    /// Creates a <see cref="System.Collections.Generic.HashSet{TValue}"/> using the specified PRNG, value generator, and length.
     /// </summary>
     /// <typeparam name="TValue">The element type.</typeparam>
     /// <param name="random">The pseudo-random number generator to use.</param>
@@ -753,14 +757,14 @@ public static partial class RandomUtility
     }
 
     /// <summary>
-    /// Creates a <see cref="SortedSet{T}"/> of random length using the specified value generator.
+    /// Creates a <see cref="System.Collections.Generic.SortedSet{TValue}"/> of random length using the specified value generator.
     /// </summary>
     /// <typeparam name="TValue">The element type.</typeparam>
     /// <param name="generator">A function that generates element values.</param>
     public static SortedSet<TValue> SortedSet<TValue>(Func<TValue> generator) => SortedSet(generator, Length());
 
     /// <summary>
-    /// Creates a <see cref="SortedSet{T}"/> using the specified value generator and length.
+    /// Creates a <see cref="System.Collections.Generic.SortedSet{TValue}"/> using the specified value generator and length.
     /// </summary>
     /// <typeparam name="TValue">The element type.</typeparam>
     /// <param name="generator">A function that generates element values.</param>
@@ -769,7 +773,7 @@ public static partial class RandomUtility
         => SortedSet(_shared, _ => generator(), length);
 
     /// <summary>
-    /// Creates a <see cref="SortedSet{T}"/> of random length using the specified PRNG and value generator.
+    /// Creates a <see cref="System.Collections.Generic.SortedSet{TValue}"/> of random length using the specified PRNG and value generator.
     /// </summary>
     /// <typeparam name="TValue">The element type.</typeparam>
     /// <param name="random">The pseudo-random number generator to use.</param>
@@ -778,7 +782,7 @@ public static partial class RandomUtility
         => SortedSet(random, generator, Length(random));
 
     /// <summary>
-    /// Creates a <see cref="SortedSet{T}"/> using the specified PRNG, value generator, and length.
+    /// Creates a <see cref="System.Collections.Generic.SortedSet{TValue}"/> using the specified PRNG, value generator, and length.
     /// </summary>
     /// <typeparam name="TValue">The element type.</typeparam>
     /// <param name="random">The pseudo-random number generator to use.</param>
@@ -801,7 +805,7 @@ public static partial class RandomUtility
     }
 
     /// <summary>
-    /// Creates a <see cref="Dictionary{TKey, TValue}"/> of random length using the specified key and value generators.
+    /// Creates a <see cref="System.Collections.Generic.Dictionary{TKey, TValue}"/> of random length using the specified key and value generators.
     /// </summary>
     /// <typeparam name="TKey">The key type.</typeparam>
     /// <typeparam name="TValue">The value type.</typeparam>
@@ -813,7 +817,7 @@ public static partial class RandomUtility
         => Dictionary(keyGenerator, valueGenerator, Length());
 
     /// <summary>
-    /// Creates a <see cref="Dictionary{TKey, TValue}"/> using the specified key/value generators and length.
+    /// Creates a <see cref="System.Collections.Generic.Dictionary{TKey, TValue}"/> using the specified key/value generators and length.
     /// </summary>
     /// <typeparam name="TKey">The key type.</typeparam>
     /// <typeparam name="TValue">The value type.</typeparam>
@@ -826,7 +830,7 @@ public static partial class RandomUtility
         => Dictionary(_shared, _ => keyGenerator(), _ => valueGenerator(), length);
 
     /// <summary>
-    /// Creates a <see cref="Dictionary{TKey, TValue}"/> of random length using the specified PRNG and key/value generators.
+    /// Creates a <see cref="System.Collections.Generic.Dictionary{TKey, TValue}"/> of random length using the specified PRNG and key/value generators.
     /// </summary>
     /// <typeparam name="TKey">The key type.</typeparam>
     /// <typeparam name="TValue">The value type.</typeparam>
@@ -839,7 +843,7 @@ public static partial class RandomUtility
         => Dictionary(random, keyGenerator, valueGenerator, Length(random));
 
     /// <summary>
-    /// Creates a <see cref="Dictionary{TKey, TValue}"/> using the specified PRNG, key/value generators, and length.
+    /// Creates a <see cref="System.Collections.Generic.Dictionary{TKey, TValue}"/> using the specified PRNG, key/value generators, and length.
     /// </summary>
     /// <typeparam name="TKey">The key type.</typeparam>
     /// <typeparam name="TValue">The value type.</typeparam>
@@ -869,7 +873,7 @@ public static partial class RandomUtility
     }
 
     /// <summary>
-    /// Creates a <see cref="SortedDictionary{TKey, TValue}"/> of random length using the specified key and value generators.
+    /// Creates a <see cref="System.Collections.Generic.SortedDictionary{TKey, TValue}"/> of random length using the specified key and value generators.
     /// </summary>
     /// <typeparam name="TKey">The key type.</typeparam>
     /// <typeparam name="TValue">The value type.</typeparam>
@@ -881,7 +885,7 @@ public static partial class RandomUtility
         => SortedDictionary(keyGenerator, valueGenerator, Length());
 
     /// <summary>
-    /// Creates a <see cref="SortedDictionary{TKey, TValue}"/> using the specified key/value generators and length.
+    /// Creates a <see cref="System.Collections.Generic.SortedDictionary{TKey, TValue}"/> using the specified key/value generators and length.
     /// </summary>
     /// <typeparam name="TKey">The key type.</typeparam>
     /// <typeparam name="TValue">The value type.</typeparam>
@@ -894,7 +898,7 @@ public static partial class RandomUtility
         => SortedDictionary(_shared, _ => keyGenerator(), _ => valueGenerator(), length);
 
     /// <summary>
-    /// Creates a <see cref="SortedDictionary{TKey, TValue}"/> of random length using the specified PRNG and key/value generators.
+    /// Creates a <see cref="System.Collections.Generic.SortedDictionary{TKey, TValue}"/> of random length using the specified PRNG and key/value generators.
     /// </summary>
     /// <typeparam name="TKey">The key type.</typeparam>
     /// <typeparam name="TValue">The value type.</typeparam>
@@ -907,7 +911,7 @@ public static partial class RandomUtility
         => SortedDictionary(random, keyGenerator, valueGenerator, Length(random));
 
     /// <summary>
-    /// Creates a <see cref="SortedDictionary{TKey, TValue}"/> using the specified PRNG, key/value generators, and length.
+    /// Creates a <see cref="System.Collections.Generic.SortedDictionary{TKey, TValue}"/> using the specified PRNG, key/value generators, and length.
     /// </summary>
     /// <typeparam name="TKey">The key type.</typeparam>
     /// <typeparam name="TValue">The value type.</typeparam>
